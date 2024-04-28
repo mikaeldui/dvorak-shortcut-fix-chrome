@@ -7,7 +7,7 @@
 // for incorrect shortcut implementations (e.g. Evernote, GitHub.com, OpenStreetMap.org).
 
 function keydownHandler(event) {
-    const modifierPressed = e.metaKey || e.ctrlKey;
+    const modifierPressed = event.metaKey || event.ctrlKey;
 
     if (modifierPressed) {
         // re-define event.key as the QWERTY equivalent.
