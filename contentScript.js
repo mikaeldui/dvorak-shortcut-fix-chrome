@@ -6,27 +6,29 @@
 // It's a keyboard event handler that makes hotkeys act like QWERTY
 // for incorrect shortcut implementations (e.g. Evernote, GitHub.com, OpenStreetMap.org).
 
-let keyboardMap = {};
-navigator.keyboard.getLayoutMap().then(map => keyboardMap = map);
-
-function getByValue(map, searchValue) {
-    for (let [key, value] of map.entries()) {
-        if (value === searchValue)
-          return key;
-    }
-}
-
 function keydownHandler(event) {
-    // Check if the user is on a Mac or Windows/Linux
-    const isMac = navigator.userAgent.toLowerCase().includes('mac');
-    const modifierPressed = isMac ? event.metaKey : event.ctrlKey;
+    const modifierPressed = e.metaKey || e.ctrlKey;
 
     if (modifierPressed) {
+        // re-define event.key as the QWERTY equivalent.
         Object.defineProperty(event, "key", {value: String.fromCharCode(event.keyCode).toLowerCase()} );
-        //var qwertyKey = getByValue(keyboardMap, event.key);
-        //console.info(qwertyKey)
     }
 }
 
-// window and capture to make sure we're the first ones to handle the event.
+// using window and capture to make sure we're the first ones to handle the event.
 window.addEventListener('keydown', keydownHandler, { capture: true });
+
+
+// TODO: keypress handler (modifier-less shortcuts), but I suspect that it'll get messy.
+
+// let keyboardMap = {};
+// navigator.keyboard.getLayoutMap().then(map => keyboardMap = map);
+
+// function getByValue(map, searchValue) {
+//     for (let [key, value] of map.entries()) {
+//         if (value === searchValue)
+//           return key;
+//     }
+// }
+//var qwertyKey = getByValue(keyboardMap, event.key);
+//console.info(qwertyKey)
