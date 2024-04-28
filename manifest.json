@@ -1,8 +1,8 @@
 {
-  "name": "Dvorak Evernote enhancement",
-  "version": "1.0.3",
+  "name": "Dvorak Shortcut Fix",
+  "version": "1.0.0",
   "manifest_version": 3,
-  "description": "Allows Dvorak keyboard users to use standard italic and underline keyboard shortcuts when editing notes on Evernote.com.",
+  "description": "Allows Dvorak keyboard users to use standard keyboard shortcuts when browsing the web.",
   "permissions": [],
   "icons": {
     "16": "icons/icon16.png",
@@ -13,17 +13,9 @@
   },
   "content_scripts": [
     {
-      "matches": ["*://*.evernote.com/client/web*"],
+      "matches": ["<all_urls>"],
       "js": ["contentScript.js"],
       "run_at": "document_end"
     }
-  ],
-  "browser_specific_settings": {
-    "gecko": {
-      "id": "{40f5623b-3167-4a88-9630-d430803e40fd}"
-    },
-    "safari": {
-      "id": "com.dvorak-evernote-enhancement"
-    }
-  }
+  ]
 }
