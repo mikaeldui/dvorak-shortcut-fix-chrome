@@ -1,5 +1,7 @@
 # Dvorak Shortcut Fix
 
+*Used https://github.com/Ste4s/DvEnEnhancement as template.*
+
 This [Chrome web extension]() enhances Dvorak keyboard shortcut support when browsing the web. 
 
 It's a small improvement for a tiny subset of web users: Dvorak keyboardists who want to use standard keyboard shortcuts, which currently do not work as expected in many websites:
