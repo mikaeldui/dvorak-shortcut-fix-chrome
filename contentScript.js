@@ -18,7 +18,6 @@ function keydownHandler(event) {
 // using window and capture to make sure we're the first ones to handle the event.
 window.addEventListener('keydown', keydownHandler, { capture: true });
 
-
 // TODO: keypress handler (modifier-less shortcuts), but I suspect that it'll get messy.
 
 // let keyboardMap = {};
@@ -30,5 +29,22 @@ window.addEventListener('keydown', keydownHandler, { capture: true });
 //           return key;
 //     }
 // }
-//var qwertyKey = getByValue(keyboardMap, event.key);
-//console.info(qwertyKey)
+
+// function keypressHandler(event) {
+
+//     var el = document.activeElement;
+
+//     if (el && (el.tagName.toLowerCase() == 'input' && el.type == 'text' ||
+//         el.tagName.toLowerCase() == 'textarea')) {
+//     // focused element is a text input or textarea
+//         return;
+//     } 
+
+//     var qwertyKey = getByValue(keyboardMap, event.key);
+
+//     // re-define event.key as the QWERTY equivalent.
+//     Object.defineProperty(event, "key", {value: String.fromCharCode(event.keyCode).toLowerCase()} );
+// }
+
+// // using window and capture to make sure we're the first ones to handle the event.
+// window.addEventListener('keypress', keypressHandler, { capture: true });
